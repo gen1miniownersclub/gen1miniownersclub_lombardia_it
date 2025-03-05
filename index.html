@@ -5,40 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gen1 Mini Owners Club</title>
     <style>
-        body {
+        html, body {
+            height: 100%;
+            margin: 0;
+            background-color: #f4f4f4;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f4f4f4;
+            overflow: hidden;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 90%;
+            max-height: 100vh;
         }
         .image-container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 90%;
-            flex-grow: 1;
-            justify-content: center;
+            width: 100%;
         }
         .image-container img {
             max-width: 100%;
             height: auto;
         }
-        .image-container img:first-child {
-            width: auto;
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
         }
-        .image-container img:last-child {
-            width: auto;
-            max-width: inherit;
+        .social-links a img {
+            width: 40px;
+            height: 40px;
         }
     </style>
 </head>
 <body>
-    <div class="image-container">
-        <img id="img1" src="temp_logo_gen1miniownersclub.png" alt="Gen1 Mini Owners Club Logo">
-        <img id="img2" src="workinprogress.png" alt="Work in Progress">
+    <div class="container">
+        <div class="image-container">
+            <img id="img1" src="temp_logo_gen1miniownersclub.png" alt="Gen1 Mini Owners Club Logo">
+            <img id="img2" src="workinprogress.png" alt="Work in Progress">
+        </div>
+        <div class="social-links">
+            <a href="https://www.instagram.com/gen1miniowners.lombardia/" target="_blank">
+                <img src="instagram_logo.png" alt="Instagram">
+            </a>
+            <a href="https://www.facebook.com/groups/gen1miniowners.lombardia" target="_blank">
+                <img src="facebook_logo.png" alt="Facebook">
+            </a>
+        </div>
     </div>
     <script>
         function adjustImageSize() {
