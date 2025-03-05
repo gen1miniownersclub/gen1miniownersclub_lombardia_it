@@ -39,6 +39,7 @@
         .image-container img {
             width: 100%;
             height: auto;
+            max-height: 50vh;
         }
         .social-links {
             display: flex;
@@ -75,5 +76,30 @@
             </a>
         </div>
     </div>
+    <script>
+        function adjustImages() {
+            const container = document.querySelector(".container");
+            const images = document.querySelectorAll(".image-container img");
+            const socialIcons = document.querySelectorAll(".social-links a img");
+            let containerWidth = container.clientWidth;
+            let containerHeight = window.innerHeight * 0.5;
+
+            images.forEach(img => {
+                img.style.width = containerWidth + "px";
+                img.style.height = containerHeight + "px";
+                img.style.objectFit = "contain";
+            });
+
+            let iconSize = Math.max(containerWidth * 0.1, 24);
+            iconSize = Math.min(iconSize, 48);
+            socialIcons.forEach(icon => {
+                icon.style.width = iconSize + "px";
+                icon.style.height = iconSize + "px";
+            });
+        }
+
+        window.addEventListener("load", adjustImages);
+        window.addEventListener("resize", adjustImages);
+    </script>
 </body>
 </html>
