@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gen1 Mini Owners Club</title>
+    <meta name="description" content="Gen1 Mini Owners Club - La community per gli appassionati delle MINI di prima generazione in Lombardia, inclusi modelli R50, R52, R53, JCW, GP1">
+    <meta name="keywords" content="Mini, Gen1 Mini, Owners Club, Lombardia, Mini Cooper, Mini Cooper S, JCW, GP1, BMW MINI, R50, R52, R53, Lombardia, Youngtimers">
+    <meta name="author" content="Gen1 Mini Owners Club">
+    <meta property="og:title" content="Gen1 Mini Owners Club">
+    <meta property="og:description" content="Unisciti alla community degli appassionati delle MINI di prima generazione in Lombardia.">
+    <meta property="og:image" content="URL_DEL_LOGO">
+    <meta property="og:url" content="URL_DEL_SITO">
+    <meta name="twitter:card" content="summary_large_image">
     <style>
         html, body {
             height: 100%;
@@ -30,7 +38,8 @@
             width: 100%;
         }
         .image-container img {
-            max-width: 100%;
+            width: 100%;
+            max-width: 500px;
             height: auto;
         }
         .social-links {
@@ -40,8 +49,9 @@
             margin-top: 10px;
         }
         .social-links a img {
-            height: auto;
+            width: 10%;
             max-width: 48px;
+            height: auto;
         }
     </style>
 </head>
@@ -58,7 +68,7 @@
             <a href="https://www.facebook.com/groups/gen1miniowners.lombardia" target="_blank">
                 <img src="facebook_logo.png" alt="Facebook">
             </a>
-            <a href="https://chat.whatsapp.com/GW4kdrNbHES0s7AxN4y9fn" target="_blank">
+            <a href="#" target="_blank">
                 <img src="whatsapp_logo.png" alt="WhatsApp">
             </a>
             <a href="mailto:gen1miniownersclub@gmail.com">
@@ -68,22 +78,23 @@
     </div>
     <script>
         function adjustImageSize() {
-            let img1 = document.getElementById("img1");
-            let img2 = document.getElementById("img2");
-            let minWidth = Math.min(img1.clientWidth, img2.clientWidth);
-            img1.style.width = minWidth + "px";
-            img2.style.width = minWidth + "px";
+            let containerWidth = document.querySelector(".container").clientWidth;
+            let maxWidth = Math.min(containerWidth * 0.9, window.innerWidth * 0.9);
+            
+            document.querySelectorAll(".image-container img").forEach(img => {
+                img.style.width = maxWidth + "px";
+            });
             
             let socialIcons = document.querySelectorAll(".social-links a img");
-            let iconSize = Math.max(minWidth * 0.1, 24); // Adatta proporzionalmente, minimo 24px
-            iconSize = Math.min(iconSize, 48); // Limite massimo di 48px
+            let iconSize = Math.max(maxWidth * 0.1, 24); // Minimo 24px
+            iconSize = Math.min(iconSize, 48); // Massimo 48px
             socialIcons.forEach(icon => {
                 icon.style.width = iconSize + "px";
                 icon.style.height = "auto";
             });
         }
-        window.onload = adjustImageSize;
-        window.onresize = adjustImageSize;
+        window.addEventListener("load", adjustImageSize);
+        window.addEventListener("resize", adjustImageSize);
     </script>
 </body>
 </html>
