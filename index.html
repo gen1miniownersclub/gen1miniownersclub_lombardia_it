@@ -16,7 +16,6 @@
         html, body {
             height: 100%;
             margin: 0;
-            padding: 0;
             background-color: #f4f4f4;
             display: flex;
             flex-direction: column;
@@ -29,36 +28,30 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            width: 100%;
-            max-width: 600px;
-            height: 100vh;
+            width: 90%;
+            max-height: 100vh;
         }
         .image-container {
             display: flex;
             flex-direction: column;
             align-items: center;
             width: 100%;
-            flex-grow: 1;
-            margin-bottom: 0;
         }
         .image-container img {
             width: 100%;
-            max-width: 90vw;
+            max-width: 500px;
             height: auto;
-            margin: 0;
-            padding: 0;
         }
         .social-links {
             display: flex;
             justify-content: center;
             gap: 15px;
-            margin-top: -10px;
+            margin-top: 10px;
         }
         .social-links a img {
-            width: min(48px, 10vw);
+            width: 10%;
+            max-width: 48px;
             height: auto;
-            margin: 0;
-            padding: 0;
         }
     </style>
 </head>
@@ -75,7 +68,7 @@
             <a href="https://www.facebook.com/groups/gen1miniowners.lombardia" target="_blank">
                 <img src="facebook_logo.png" alt="Facebook">
             </a>
-            <a href="#" target="_blank">
+            <a href="https://chat.whatsapp.com/GW4kdrNbHES0s7AxN4y9fn" target="_blank">
                 <img src="whatsapp_logo.png" alt="WhatsApp">
             </a>
             <a href="mailto:gen1miniownersclub@gmail.com">
@@ -83,5 +76,25 @@
             </a>
         </div>
     </div>
+    <script>
+        function adjustImageSize() {
+            let containerWidth = document.querySelector(".container").clientWidth;
+            let maxWidth = Math.min(containerWidth * 0.9, window.innerWidth * 0.9);
+            
+            document.querySelectorAll(".image-container img").forEach(img => {
+                img.style.width = maxWidth + "px";
+            });
+            
+            let socialIcons = document.querySelectorAll(".social-links a img");
+            let iconSize = Math.max(maxWidth * 0.1, 24); // Minimo 24px
+            iconSize = Math.min(iconSize, 48); // Massimo 48px
+            socialIcons.forEach(icon => {
+                icon.style.width = iconSize + "px";
+                icon.style.height = "auto";
+            });
+        }
+        window.addEventListener("load", adjustImageSize);
+        window.addEventListener("resize", adjustImageSize);
+    </script>
 </body>
 </html>
