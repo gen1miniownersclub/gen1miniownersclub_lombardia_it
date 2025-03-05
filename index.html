@@ -68,7 +68,7 @@
             <a href="https://www.facebook.com/groups/gen1miniowners.lombardia" target="_blank">
                 <img src="facebook_logo.png" alt="Facebook">
             </a>
-            <a href="https://chat.whatsapp.com/GW4kdrNbHES0s7AxN4y9fn" target="_blank">
+            <a href="#" target="_blank">
                 <img src="whatsapp_logo.png" alt="WhatsApp">
             </a>
             <a href="mailto:gen1miniownersclub@gmail.com">
@@ -78,13 +78,16 @@
     </div>
     <script>
         function adjustImageSize() {
-            let containerWidth = document.querySelector(".container").clientWidth;
-            let maxWidth = Math.min(containerWidth * 0.9, window.innerWidth * 0.9);
+            let container = document.querySelector(".container");
+            let containerWidth = container.clientWidth;
+            let viewportWidth = window.innerWidth;
+
+            let maxWidth = Math.min(containerWidth * 0.9, viewportWidth * 0.9);
             
             document.querySelectorAll(".image-container img").forEach(img => {
                 img.style.width = maxWidth + "px";
             });
-            
+
             let socialIcons = document.querySelectorAll(".social-links a img");
             let iconSize = Math.max(maxWidth * 0.1, 24); // Minimo 24px
             iconSize = Math.min(iconSize, 48); // Massimo 48px
@@ -93,8 +96,11 @@
                 icon.style.height = "auto";
             });
         }
+
         window.addEventListener("load", adjustImageSize);
-        window.addEventListener("resize", adjustImageSize);
+        window.addEventListener("resize", () => {
+            setTimeout(adjustImageSize, 100); // Delay per ridimensionamento più fluido
+        });
     </script>
 </body>
 </html>
