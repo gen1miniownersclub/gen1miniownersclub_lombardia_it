@@ -40,8 +40,8 @@
             margin-top: 10px;
         }
         .social-links a img {
-            width: 40px;
-            height: 40px;
+            height: auto;
+            max-width: 48px;
         }
     </style>
 </head>
@@ -58,6 +58,12 @@
             <a href="https://www.facebook.com/groups/gen1miniowners.lombardia" target="_blank">
                 <img src="facebook_logo.png" alt="Facebook">
             </a>
+            <a href="https://chat.whatsapp.com/GW4kdrNbHES0s7AxN4y9fn" target="_blank">
+                <img src="whatsapp_logo.png" alt="WhatsApp">
+            </a>
+            <a href="mailto:gen1miniownersclub@gmail.com">
+                <img src="email_logo.png" alt="Email">
+            </a>
         </div>
     </div>
     <script>
@@ -67,6 +73,14 @@
             let minWidth = Math.min(img1.clientWidth, img2.clientWidth);
             img1.style.width = minWidth + "px";
             img2.style.width = minWidth + "px";
+            
+            let socialIcons = document.querySelectorAll(".social-links a img");
+            let iconSize = Math.max(minWidth * 0.1, 24); // Adatta proporzionalmente, minimo 24px
+            iconSize = Math.min(iconSize, 48); // Limite massimo di 48px
+            socialIcons.forEach(icon => {
+                icon.style.width = iconSize + "px";
+                icon.style.height = "auto";
+            });
         }
         window.onload = adjustImageSize;
         window.onresize = adjustImageSize;
