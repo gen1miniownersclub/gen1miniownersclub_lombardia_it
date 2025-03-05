@@ -7,19 +7,29 @@
     <style>
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
             background-color: #f4f4f4;
         }
+        .image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 90%;
+        }
         img {
-            max-width: 90%;
+            max-width: 100%;
             height: auto;
         }
     </style>
 </head>
 <body>
-    <img src="temp_logo_gen1miniownersclub.png" alt="Gen1 Mini Owners Club Logo">
+    <div class="image-container">
+        <img src="temp_logo_gen1miniownersclub.png" alt="Gen1 Mini Owners Club Logo">
+        <img src="workinprogress.png" alt="Work in Progress">
+    </div>
 </body>
 </html>
