@@ -28,9 +28,22 @@
         .container {
             display: flex;
             flex-direction: column;
+            justify-content: center;
             align-items: center;
             width: 90%;
-            max-width: 800px;
+            max-height: 100vh;
+        }
+        .image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            margin-top: 20px; margin-bottom: 20px;
+        }
+        .image-container img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
         }
         .nav-buttons {
             display: flex;
@@ -52,25 +65,13 @@
         .btn:hover {
             color: #ff4500; font-weight: bold;
         }
-        .image-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            margin-top: 20px; margin-bottom: 20px;
-        }
-        .image-container img {
-            width: 100%;
-            max-width: 400px;
-            height: auto;
-        }
         .event-list {
             width: 100%;
             background: white;
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
+            text-align: left;
             font-size: 18px;
         }
         .event-item {
