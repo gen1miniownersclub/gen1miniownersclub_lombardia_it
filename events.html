@@ -74,18 +74,21 @@
             font-size: 18px;
         }
         .event-item {
-            padding: 10px;
+            padding: 15px 0;
             border-bottom: none;
+            display: flex;
+            flex-direction: column;
         }
-        .event-item:last-child {
-            border-bottom: none;
+        .event-date {
+            font-weight: bold;
+            color: #333;
         }
-        .event-item a {
+        .event-details a {
             text-decoration: none;
             color: black;
-            font-weight: bold;
+            font-weight: normal;
         }
-        .event-item a:hover {
+        .event-details a:hover {
             color: #ff4500;
         }
     </style>
@@ -104,19 +107,40 @@
         </div>
         <div class="event-list">
             <h2 style="text-align: center;">Next Events</h2>
-            <div class="event-item"><a href="#">to be def  - Agliate (MB) - Mini&Solo1340</a></div>
-            <div class="event-item"><a href="#">2025-06-15 - Arcene (BG) - Arcene on the Road</a></div>
+            <div class="event-item">
+                <div class="event-date">to be def</div>
+                <div class="event-details"><a href="#">Agliate (MB) - Mini&Solo1340</a></div>
             </div>
+            <div class="event-item">
+                <div class="event-date">2025-06-15</div>
+                <div class="event-details"><a href="#">Arcene (BG) - Arcene on the Road</a></div>
+            </div>
+        </div>
         <div class="event-list">
             <h2 style="text-align: center;">Past Events</h2>
-            <div class="event-item"><a href="#">2025-02-16 - Monza (MB) - Monza Circuit Track Days</a></div>
-            <div class="event-item"><a href="#">2024-12-23 - Capriate (BG) - Pizza Club No Limits</a></div>
-            <div class="event-item"><a href="#">2024-11-24 - Monza (MB) - Monza Circuit Track Days</a></div>
-            <div class="event-item"><a href="#">2024-09-29 - Agliate (MB) - Mini&Solo1340</a></div>
-            <div class="event-item"><a href="#">2024-09-22 - Vignate (MI) - Centro Commerciale Acquario</a></div>
+            <div class="event-item">
+                <div class="event-date">2025-02-16</div>
+                <div class="event-details"><a href="#">Monza (MB) - Monza Circuit Track Days</a></div>
+            </div>
+            <div class="event-item">
+                <div class="event-date">2024-12-23</div>
+                <div class="event-details"><a href="#">Capriate (BG) - Pizza Club No Limits</a></div>
+            </div>
+            <div class="event-item">
+                <div class="event-date">2024-11-24</div>
+                <div class="event-details"><a href="#">Monza (MB) - Monza Circuit Track Days</a></div>
+            </div>
+            <div class="event-item">
+                <div class="event-date">2024-09-29</div>
+                <div class="event-details"><a href="#">Agliate (MB) - Mini&Solo1340</a></div>
+            </div>
+            <div class="event-item">
+                <div class="event-date">2024-09-22</div>
+                <div class="event-details"><a href="#">Vignate (MI) - Centro Commerciale Acquario</a></div>
+            </div>
         </div>
     </div>
-<script>
+    <script>
         window.onload = function() {
             setTimeout(function() {
                 window.scrollTo(0, 0);
@@ -125,3 +149,4 @@
     </script>
 </body>
 </html>
+
