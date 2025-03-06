@@ -27,44 +27,44 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            overflow-y: auto;
+            overflow-x: hidden;
             font-family: 'PhillySans', Arial, sans-serif;
         }
         .container {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
             align-items: center;
             width: 90%;
             max-width: 800px;
-            height: 80vh;
         }
         .image-container {
             display: flex;
             flex-direction: column;
             align-items: center;
             width: 100%;
-            flex-grow: 1;
+            margin: 20px 0;
         }
         .image-container img {
             width: 100%;
-            max-width: 500px;
+            max-width: 90vw;
             height: auto;
         }
         .nav-buttons {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            flex-wrap: nowrap;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
         }
         .btn {
-            padding: 10px 20px;
+            padding: 8px 16px;
             background-color: transparent;
             color: black;
             border: none;
             cursor: pointer;
-            font-size: 22px;
+            font-size: 20px;
             font-family: 'PhillySans', Arial, sans-serif;
+            white-space: nowrap;
         }
         .btn:hover {
             text-decoration: underline;
@@ -73,10 +73,10 @@
             display: flex;
             justify-content: center;
             gap: 15px;
-            flex-grow: 1;
+            margin-top: 20px;
         }
         .social-links a img {
-            width: 48px;
+            width: 40px;
             height: auto;
         }
     </style>
