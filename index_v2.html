@@ -33,17 +33,18 @@
         .container {
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             width: 90%;
             max-width: 800px;
+            height: 80vh;
         }
         .image-container {
             display: flex;
             flex-direction: column;
             align-items: center;
             width: 100%;
-            margin-bottom: 20px;
+            flex-grow: 1;
         }
         .image-container img {
             width: 100%;
@@ -54,7 +55,6 @@
             display: flex;
             justify-content: center;
             gap: 15px;
-            margin-top: 10px;
             flex-wrap: nowrap;
         }
         .btn {
@@ -63,7 +63,7 @@
             color: black;
             border: none;
             cursor: pointer;
-            font-size: 28px;
+            font-size: 22px;
             font-family: 'PhillySans', Arial, sans-serif;
         }
         .btn:hover {
@@ -73,7 +73,7 @@
             display: flex;
             justify-content: center;
             gap: 15px;
-            margin-top: 20px;
+            flex-grow: 1;
         }
         .social-links a img {
             width: 48px;
