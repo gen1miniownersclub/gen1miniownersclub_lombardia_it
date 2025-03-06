@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <title>Eventi - Gen1 Mini Owners Club</title>
+    <title>Events - Gen1 Mini Owners Club</title>
     <meta name="description" content="Scopri i prossimi eventi del Gen1 Mini Owners Club in Lombardia.">
     <meta name="author" content="Gen1 Mini Owners Club">
     <style>
@@ -21,7 +21,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            overflow-y: auto;
+            overflow-x: hidden;
             font-family: 'PhillySans', Arial, sans-serif;
         }
         .container {
@@ -29,27 +29,47 @@
             flex-direction: column;
             align-items: center;
             width: 90%;
-            max-width: 600px;
+            max-width: 800px;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-evenly;
+            gap: 5px;
+            flex-wrap: nowrap;
+            margin: 20px 0;
+        }
+        .btn {
+            padding: 6px 12px;
+            background-color: transparent;
+            color: black;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            font-family: 'PhillySans', Arial, sans-serif;
+            white-space: nowrap;
+        }
+        .btn:hover {
+            color: #ff4500; font-weight: bold;
         }
         .image-container {
             display: flex;
             flex-direction: column;
             align-items: center;
             width: 100%;
-            margin-top: 20px;
+            margin: 20px 0;
         }
         .image-container img {
             width: 100%;
-            max-width: 500px;
+            max-width: 400px;
             height: auto;
         }
         .event-list {
-            margin-top: 20px;
             width: 100%;
             background: white;
-            padding: 15px;
+            padding: 20px;
             border-radius: 5px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
         .event-item {
             padding: 10px;
@@ -58,33 +78,26 @@
         .event-item:last-child {
             border-bottom: none;
         }
-        .back-btn {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #ff4500;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            border-radius: 5px;
-        }
-        .back-btn:hover {
-            background-color: #d43700;
-        }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="nav-buttons">
+            <button class="btn" onclick="window.location.href='index.html'">Home</button>
+            <button class="btn" onclick="window.location.href='story.html'">Story's</button>
+            <button class="btn" onclick="window.location.href='partners.html'">Partners</button>
+            <button class="btn" onclick="window.location.href='events.html'">Events</button>
+            <button class="btn" onclick="window.location.href='shop.html'">Shop</button>
+        </div>
         <div class="image-container">
             <img src="images/gen1miniownersclub_logo.png" alt="Gen1 Mini Owners Club Logo">
         </div>
-        <div class="event-list" id="eventList">
+        <div class="event-list">
             <h2>Prossimi Eventi</h2>
             <div class="event-item">📅 Evento 1 - Data e Dettagli</div>
             <div class="event-item">📅 Evento 2 - Data e Dettagli</div>
             <div class="event-item">📅 Evento 3 - Data e Dettagli</div>
         </div>
-        <button class="back-btn" onclick="window.location.href='index.html'">Torna alla Home</button>
     </div>
 </body>
 </html>
