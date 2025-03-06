@@ -36,7 +36,7 @@
             justify-content: center;
             align-items: center;
             width: 90%;
-            max-width: 600px;
+            max-width: 800px;
         }
         .image-container {
             display: flex;
@@ -53,15 +53,15 @@
         .nav-buttons {
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
+            gap: 15px;
             margin-top: 10px;
+            flex-wrap: nowrap;
         }
         .btn {
             padding: 10px 20px;
             background-color: white;
             color: black;
-            border: 2px solid black;
+            border: none;
             cursor: pointer;
             font-size: 18px;
             border-radius: 5px;
@@ -69,6 +69,16 @@
         }
         .btn:hover {
             background-color: #f0f0f0;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .social-links a img {
+            width: 48px;
+            height: auto;
         }
     </style>
 </head>
@@ -81,9 +91,22 @@
             <button class="btn" onclick="window.location.href='index.html'">Home</button>
             <button class="btn" onclick="window.location.href='story.html'">Story's</button>
             <button class="btn" onclick="window.location.href='partners.html'">Partners</button>
-            <button class="btn" onclick="window.location.href='contact.html'">Contact Us</button>
-            <button class="btn" onclick="window.location.href='events.html'">Events</button>
+            <button class="btn" onclick="window.location.href='eventi.html'">Events</button>
             <button class="btn" onclick="window.location.href='shop.html'">Shop</button>
+        </div>
+        <div class="social-links">
+            <a href="https://www.instagram.com/gen1miniowners.lombardia/" target="_blank" aria-label="Visita il nostro Instagram">
+                <img src="images/instagram_logo.png" alt="Instagram">
+            </a>
+            <a href="https://www.facebook.com/groups/gen1miniowners.lombardia" target="_blank" aria-label="Unisciti alla community su Facebook">
+                <img src="images/facebook_logo.png" alt="Facebook">
+            </a>
+            <a href="https://chat.whatsapp.com/GW4kdrNbHES0s7AxN4y9fn" target="_blank" aria-label="Unisciti al nostro gruppo WhatsApp">
+                <img src="images/whatsapp_logo.png" alt="WhatsApp">
+            </a>
+            <a href="mailto:gen1miniownersclub@gmail.com" aria-label="Contattaci via Email">
+                <img src="images/email_logo.png" alt="Email">
+            </a>
         </div>
     </div>
 </body>
