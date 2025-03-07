@@ -43,8 +43,10 @@
         .nav-buttons {
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
             gap: 5px;
-            flex-wrap: nowrap;
+            width: 100%;
+            max-width: 680px;
             margin-top: 10px; 
             margin-bottom: 20px;
         }
@@ -58,6 +60,10 @@
             font-family: 'PhillySans', Arial, sans-serif;
             white-space: nowrap;
             display: none;
+            min-width: 80px; /* Imposta una larghezza minima */
+            max-width: 150px; /* Evita che i bottoni diventino troppo larghi */
+            text-align: center;
+            flex-grow: 1; /* Mantiene la distribuzione uniforme */
         }
         .btn:hover {
             color: #ff4500; 
