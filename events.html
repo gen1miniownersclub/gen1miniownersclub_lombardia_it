@@ -6,6 +6,7 @@
     <title>Events - Gen1 Mini Owners Club</title>
     <meta name="description" content="Scopri i prossimi eventi del Gen1 Mini Owners Club in Lombardia.">
     <meta name="author" content="Gen1 Mini Owners Club">
+    <link rel="preload" href="fonts/PhillySans.otf" as="font" type="font/otf" crossorigin="anonymous">
     <style>
         @font-face {
             font-family: 'PhillySans';
@@ -13,14 +14,13 @@
             font-weight: normal;
             font-style: normal;
         }
-        
         html, body {
             height: 100%;
             margin: 0;
             background-color: #f4f4f4;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start; 
+            justify-content: flex-start;
             align-items: center;
             overflow-x: hidden; overflow-y: auto;
             font-family: 'PhillySans', Arial, sans-serif;
@@ -29,18 +29,22 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: min(90%, 800px); min-height: 100vh;
+            width: min(90%, 800px);
+            min-height: calc(100vh - 20px);
             max-width: 800px;
         }
         .nav-buttons {
             display: flex;
-            justify-content: center; padding: 0 10px; max-width: 680px; 
+            justify-content: center;
+            flex-wrap: wrap;
             gap: 2px;
-            flex-wrap: nowrap;
-            margin-top: 10px; margin-bottom: 20px;
+            width: 100%;
+            max-width: 680px;
+            margin-top: 10px;
+            margin-bottom: 20px;
         }
         .btn {
-            padding: 6px 12px;
+            padding: 4px 8px;
             background-color: transparent;
             color: black;
             border: none;
@@ -48,9 +52,13 @@
             font-size: 20px;
             font-family: 'PhillySans', Arial, sans-serif;
             white-space: nowrap;
+            display: none;
+            text-align: center;
+            width: auto;
         }
         .btn:hover {
-            color: #ff4500; font-weight: bold;
+            color: #ff4500;
+            font-weight: bold;
         }
         .image-container {
             display: flex;
@@ -98,30 +106,69 @@
         .event-details a:hover {
             color: #ff4500;
         }
+        .language-shop-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 800px;
+            padding: 10px 20px;
+        }
+        .btn-lang {
+            background: transparent;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            font-family: 'PhillySans', Arial, sans-serif;
+        }
+        .btn-lang:hover {
+            font-weight: bold;
+            color: #ff4500;
+        }
+        .shop-button {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            text-decoration: none;
+            font-size: 20px;
+            font-family: 'PhillySans', Arial, sans-serif;
+            color: black;
+        }
+        .shop-button img {
+            height: 24px;
+        }
+        .shinystat-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="language-shop-container">
+            <a href="#" class="shop-button" data-lang="it"><img src="images/shop_logo.png" alt="Negozio">Negozio</a>
+            <a href="#" class="shop-button" data-lang="en"><img src="images/shop_logo.png" alt="Shop">Shop</a>
+            <div>
+                <button class="btn-lang" onclick="changeLanguage('en')" aria-label="Cambia lingua in inglese">EN</button>
+                <span style="margin: 0; font-family: 'PhillySans', Arial, sans-serif;">|</span>
+                <button class="btn-lang" onclick="changeLanguage('it')" aria-label="Cambia lingua in italiano">IT</button>
+            </div>
+        </div>
         <div class="image-container">
-            <img src="images/gen1miniownersclub_logo.png" alt="Gen1 Mini Owners Club Logo">
+            <img src="images/gen1miniownersclub_logo.png" alt="Gen1 Mini Owners Club Logo" loading="lazy">
         </div>
         <div class="nav-buttons">
-            <button class="btn" onclick="window.location.href='index_v2.html'">Home</button>
-            <button class="btn" onclick="window.location.href='story.html'">Story's</button>
-            <button class="btn" onclick="window.location.href='#'">Partners</button>
-            <button class="btn" onclick="window.location.href='events.html'">Events</button>
-            <button class="btn" onclick="window.location.href='#'">Shop</button>
-        </div>
-        <div class="event-list">
-            <h2 style="text-align: center;">- Next Events -</h2>
-            <div class="event-item">
-                <div class="event-date">26-04-2025</div>
-                <div class="event-details"><a href="#">Agliate (MB) - Mini&Solo1340</a></div>
-            </div>
-            <div class="event-item">
-                <div class="event-date">15-06-2025</div>
-                <div class="event-details"><a href="#">Arcene (BG) - Arcene on the Road</a></div>
-            </div>
+            <button class="btn" data-lang="it" onclick="window.location.href='index_v2.html'">Home</button>
+            <button class="btn" data-lang="en" onclick="window.location.href='index_v2.html'">Home</button>
+            <button class="btn" data-lang="it" onclick="window.location.href='#'">Storia</button>
+            <button class="btn" data-lang="en" onclick="window.location.href='#'">Story</button>
+            <button class="btn" data-lang="it" onclick="window.location.href='#'">Partners</button>
+            <button class="btn" data-lang="en" onclick="window.location.href='#'">Partners</button>
+            <button class="btn" data-lang="it" onclick="window.location.href='events.html'">Eventi</button>
+            <button class="btn" data-lang="en" onclick="window.location.href='events.html'">Events</button>
         </div>
         <div class="event-list">
             <h2 style="text-align: center;">- Past Events -</h2>
@@ -148,12 +195,12 @@
         </div>
     </div>
     <script>
-        window.onload = function() {
-            setTimeout(function() {
-                window.scrollTo(0, 0);
-            }, 100);
-        };
+        function changeLanguage(lang) {
+            document.querySelectorAll('.btn, .shop-button').forEach(el => {
+                el.style.display = el.getAttribute('data-lang') === lang ? 'inline-flex' : 'none';
+            });
+        }
+        changeLanguage('it'); // Imposta la lingua predefinita
     </script>
 </body>
 </html>
-
