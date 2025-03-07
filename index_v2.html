@@ -84,19 +84,40 @@
             justify-content: center;
             margin-top: 20px;
         }
+        .language-selector {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .btn-lang {
+            background: transparent;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="language-selector">
+            <button class="btn-lang" onclick="changeLanguage('it')">IT</button>
+            <button class="btn-lang" onclick="changeLanguage('en')">EN</button>
+        </div>
         <div class="image-container">
             <img id="img1" src="images/gen1miniownersclub_logo.png" alt="Gen1 Mini Owners Club Logo" loading="lazy">
         </div>
         <div class="nav-buttons">
-            <button class="btn" onclick="window.location.href='index_v2.html'">Home</button>
-            <button class="btn" onclick="window.location.href='story.html'">Story's</button>
-            <button class="btn" onclick="window.location.href='#'">Partners</button>
-            <button class="btn" onclick="window.location.href='events.html'">Events</button>
-            <button class="btn" onclick="window.location.href='#'">Shop</button>
+            <button class="btn lang lang-it active" onclick="window.location.href='index_v2.html'">Home</button>
+            <button class="btn lang lang-en" onclick="window.location.href='index_v2.html'">Home</button>
+            <button class="btn lang lang-it active" onclick="window.location.href='#'">Storia</button>
+            <button class="btn lang lang-en" onclick="window.location.href='#'">Story</button>
+            <button class="btn lang lang-it active" onclick="window.location.href='#'">Partners</button>
+            <button class="btn lang lang-en" onclick="window.location.href='#'">Partners</button>
+            <button class="btn lang lang-it active" onclick="window.location.href='events.html'">Eventi</button>
+            <button class="btn lang lang-en" onclick="window.location.href='events.html'">Events</button>
+            <button class="btn lang lang-it active" onclick="window.location.href='#'">Negozio</button>
+            <button class="btn lang lang-en" onclick="window.location.href='#'">Shop</button>
         </div>
         <div class="social-links">
             <a href="https://www.instagram.com/gen1miniowners.lombardia/" target="_blank" aria-label="Visita il nostro Instagram">
@@ -116,5 +137,11 @@
             <script src="//codice.shinystat.com/cgi-bin/getcod.cgi?USER=SS-52618215-692a6"></script>
         </div>
     </div>
+    <script>
+        function changeLanguage(lang) {
+            document.querySelectorAll('.lang, .btn').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.lang-' + lang).forEach(el => el.classList.add('active'));
+        }
+    </script>
 </body>
 </html>
