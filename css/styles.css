@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'PhillySans';
-    src: url('fonts/PhillySans.otf') format('opentype');
+    src: url('../fonts/PhillySans.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
