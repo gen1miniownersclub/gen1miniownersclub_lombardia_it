@@ -95,6 +95,7 @@
             border: none;
             font-size: 16px;
             cursor: pointer;
+            font-family: 'PhillySans', Arial, sans-serif;
         }
         .btn-lang:hover {
             font-weight: bold;
@@ -111,8 +112,8 @@
 <body>
     <div class="container">
         <div class="language-selector">
-            <button class="btn-lang" onclick="changeLanguage('it')">IT</button>
-            <button class="btn-lang" onclick="changeLanguage('en')">EN</button>
+            <button class="btn-lang lang-it active" onclick="changeLanguage('en')">EN</button>
+            <button class="btn-lang lang-en" onclick="changeLanguage('it')">IT</button>
         </div>
         <div class="image-container">
             <img id="img1" src="images/gen1miniownersclub_logo.png" alt="Gen1 Mini Owners Club Logo" loading="lazy">
