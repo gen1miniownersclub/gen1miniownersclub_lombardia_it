@@ -107,6 +107,16 @@
             font-weight: bold;
             color: #ff4500;
         }
+        .shop-button {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            font-family: 'PhillySans', Arial, sans-serif;
+            color: black;
+            order: -1;
+        }
         .shinystat-container {
             display: flex;
             justify-content: center;
@@ -118,9 +128,9 @@
 </head>
 <body>
     <div class="container">
+            <a href="#" class="shop-button" data-lang="it"><img src="images/shop_logo.png" alt="Negozio" style="height: 24px;">Negozio</a>
+            <a href="#" class="shop-button" data-lang="en"><img src="images/shop_logo.png" alt="Shop" style="height: 24px;">Shop</a>
         <div class="language-selector">
-            <a href="#" class="btn" data-lang="it"><img src="images/shop_logo.png" alt="Negozio" style="height: 24px;">Negozio</a>
-            <a href="#" class="btn" data-lang="en"><img src="images/shop_logo.png" alt="Shop" style="height: 24px;">Shop</a>
             <button class="btn-lang" onclick="changeLanguage('en')" aria-label="Cambia lingua in inglese">EN</button>
             <button class="btn-lang" onclick="changeLanguage('it')" aria-label="Cambia lingua in italiano">IT</button>
         </div>
