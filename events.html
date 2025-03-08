@@ -71,11 +71,16 @@
     </div>
     <script>
         function changeLanguage(lang) {
+            localStorage.setItem('selectedLanguage', lang);
             document.querySelectorAll('.btn, .shop-button').forEach(el => {
                 el.style.display = el.getAttribute('data-lang') === lang ? 'inline-flex' : 'none';
             });
         }
-        changeLanguage('it'); // Imposta la lingua predefinita
+    
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLanguage = localStorage.getItem('selectedLanguage') || 'it';
+            changeLanguage(savedLanguage);
+        });
     </script>
 </body>
 </html>
