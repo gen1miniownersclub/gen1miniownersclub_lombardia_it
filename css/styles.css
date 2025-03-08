@@ -19,9 +19,9 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: min(90%, 800px); 
+    width: min(90%, 400px); 
     min-height: calc(100vh - 20px);
-    max-width: 800px;
+    max-width: 400px;
 }
 .nav-buttons {
     display: flex;
@@ -29,7 +29,7 @@ html, body {
     flex-wrap: wrap;
     gap: 2px;
     width: 100%;
-    max-width: 680px;
+    max-width: 400px;
     margin-top: 10px;
     margin-bottom: 5px;
 }
