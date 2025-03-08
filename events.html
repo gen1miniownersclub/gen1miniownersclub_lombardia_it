@@ -48,45 +48,38 @@
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            fetch("header.html") 
+            fetch("header.html")
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById("header-container").innerHTML = data;
-        
-                    // Aspetta un breve intervallo per assicurarsi che il DOM sia aggiornato
-                    setTimeout(() => {
+                })
+                .then(() => {
+                    // Aspetta il rendering del DOM e poi cambia la lingua
+                    requestAnimationFrame(() => {
                         const savedLanguage = localStorage.getItem("selectedLanguage") || "it";
                         changeLanguage(savedLanguage);
-                    }, 100); // Aspetta 100 millisecondi
+                    });
                 });
         });
-
-        document.addEventListener("DOMContentLoaded", function () {
-            fetch("header.html") 
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById("header-container").innerHTML = data;
-                    const savedLanguage = localStorage.getItem("selectedLanguage") || "it";
-                    changeLanguage(savedLanguage);
-                });
-        });
-
+        
         function changeLanguage(lang) {
             localStorage.setItem('selectedLanguage', lang);
-
-            // Cambia la visibilità dei bottoni e degli elementi multilingua
-            document.querySelectorAll('.btn, .shop-button').forEach(el => {
-                el.style.display = el.getAttribute('data-lang') === lang ? 'inline-flex' : 'none';
-            });
-
-            // Cambia i titoli degli eventi
-            document.getElementById("next-events-title").textContent = lang === "en" ? "- Next Events -" : "- Prossimi Eventi -";
-            document.getElementById("past-events-title").textContent = lang === "en" ? "- Past Events -" : "- Eventi Passati -";
-
+        
+            // Assicurati che gli elementi esistano prima di modificarli
+            const nextEventsTitle = document.getElementById("next-events-title");
+            const pastEventsTitle = document.getElementById("past-events-title");
+        
+            if (nextEventsTitle && pastEventsTitle) {
+                nextEventsTitle.textContent = lang === "en" ? "- Next Events -" : "- Prossimi Eventi -";
+                pastEventsTitle.textContent = lang === "en" ? "- Past Events -" : "- Eventi Passati -";
+            } else {
+                console.warn("Gli elementi dei titoli degli eventi non sono ancora disponibili.");
+            }
+        
             // Cambia il formato della data
             formatEventDates(lang);
         }
-
+        
         function formatEventDates(lang) {
             document.querySelectorAll(".event-date").forEach(dateElement => {
                 let dateParts = dateElement.textContent.split("-");
