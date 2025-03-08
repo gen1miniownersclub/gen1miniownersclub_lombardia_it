@@ -17,29 +17,7 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="language-shop-container">
-            <a href="#" class="shop-button" data-lang="it"><img src="images/shop_logo.png" alt="Negozio">Negozio</a>
-            <a href="#" class="shop-button" data-lang="en"><img src="images/shop_logo.png" alt="Shop">Shop</a>
-            <div>
-                <button class="btn-lang" onclick="changeLanguage('en')" aria-label="Cambia lingua in inglese">EN</button>
-                <span style="margin: 0; font-family: 'PhillySans', Arial, sans-serif;">|</span>
-                <button class="btn-lang" onclick="changeLanguage('it')" aria-label="Cambia lingua in italiano">IT</button>
-            </div>
-        </div>
-        <div class="image-container">
-            <img src="images/gen1miniownersclub_logo.png" alt="Gen1 Mini Owners Club Logo" loading="lazy">
-        </div>
-        <div class="nav-buttons">
-            <button class="btn" data-lang="it" onclick="window.location.href='index_v2.html'">Home</button>
-            <button class="btn" data-lang="en" onclick="window.location.href='index_v2.html'">Home</button>
-            <button class="btn" data-lang="it" onclick="window.location.href='#'">Storia</button>
-            <button class="btn" data-lang="en" onclick="window.location.href='#'">Story</button>
-            <button class="btn" data-lang="it" onclick="window.location.href='events.html'">Eventi</button>
-            <button class="btn" data-lang="en" onclick="window.location.href='events.html'">Events</button>
-            <button class="btn" data-lang="it" onclick="window.location.href='#'">Partners</button>
-            <button class="btn" data-lang="en" onclick="window.location.href='#'">Partners</button>
-        </div>
+        <div id="header-container"></div>
         <div class="social-links">
             <a href="https://www.instagram.com/gen1miniowners.lombardia/" target="_blank">
                 <img src="images/instagram_logo.png" alt="Instagram">
@@ -59,17 +37,22 @@
         </div>
     </div>
     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("header.html") 
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("header-container").innerHTML = data;
+                    const savedLanguage = localStorage.getItem("selectedLanguage") || "it";
+                    changeLanguage(savedLanguage);
+                });
+        });
+
         function changeLanguage(lang) {
             localStorage.setItem('selectedLanguage', lang);
             document.querySelectorAll('.btn, .shop-button').forEach(el => {
                 el.style.display = el.getAttribute('data-lang') === lang ? 'inline-flex' : 'none';
             });
         }
-    
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedLanguage = localStorage.getItem('selectedLanguage') || 'it';
-            changeLanguage(savedLanguage);
-        });
     </script>
 </body>
 </html>
