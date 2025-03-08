@@ -128,7 +128,7 @@ html, body {
     margin-bottom: 5px;
 }
 .event-item {
-    padding: 15px 0;
+    padding: 7px 0;
     border-bottom: none;
     display: flex;
     flex-direction: column;
