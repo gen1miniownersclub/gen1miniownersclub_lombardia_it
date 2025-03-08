@@ -52,6 +52,20 @@
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById("header-container").innerHTML = data;
+        
+                    // Aspetta un breve intervallo per assicurarsi che il DOM sia aggiornato
+                    setTimeout(() => {
+                        const savedLanguage = localStorage.getItem("selectedLanguage") || "it";
+                        changeLanguage(savedLanguage);
+                    }, 100); // Aspetta 100 millisecondi
+                });
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("header.html") 
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("header-container").innerHTML = data;
                     const savedLanguage = localStorage.getItem("selectedLanguage") || "it";
                     changeLanguage(savedLanguage);
                 });
