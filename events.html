@@ -47,17 +47,22 @@
         </div>
     </div>
     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("header.html") 
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("header-container").innerHTML = data;
+                    const savedLanguage = localStorage.getItem("selectedLanguage") || "it";
+                    changeLanguage(savedLanguage);
+                });
+        });
+
         function changeLanguage(lang) {
             localStorage.setItem('selectedLanguage', lang);
             document.querySelectorAll('.btn, .shop-button').forEach(el => {
                 el.style.display = el.getAttribute('data-lang') === lang ? 'inline-flex' : 'none';
             });
         }
-    
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedLanguage = localStorage.getItem('selectedLanguage') || 'it';
-            changeLanguage(savedLanguage);
-        });
     </script>
 </body>
 </html>
