@@ -10,84 +10,71 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-        <div id="header-container"></div>
-        <div class="event-list">
-            <h2 id="next-events-title" style="text-align: center;">- Next Events -</h2>
-            <div class="event-item">
-                <div class="event-date">26-04-2025</div>
-                <div class="event-details"><a href="#">Agliate (MB) - Mini&Solo1340</a></div>
-            </div>
-            <div class="event-item">
-                <div class="event-date">15-06-2025</div>
-                <div class="event-details"><a href="#">Arcene (BG) - Arcene on the Road</a></div>
-            </div>
+    <div id="header-container"></div>
+
+    <div class="event-list">
+        <h2 id="next-events-title" style="text-align: center;">- Next Events -</h2>
+        <div class="event-item">
+            <div class="event-date">26-04-2025</div>
+            <div class="event-details"><a href="#">Agliate (MB) - Mini&Solo1340</a></div>
         </div>
-        <div class="event-list">
-            <h2 id="past-events-title" style="text-align: center;">- Past Events -</h2>
-            <div class="event-item">
-                <div class="event-date">16-02-2025</div>
-                <div class="event-details"><a href="#">Monza (MB) - Monza Circuit Track Days</a></div>
-            </div>
-            <div class="event-item">
-                <div class="event-date">23-12-2024</div>
-                <div class="event-details"><a href="#">Capriate (BG) - Pizza Club No Limits</a></div>
-            </div>
-            <div class="event-item">
-                <div class="event-date">24-11-2024</div>
-                <div class="event-details"><a href="#">Monza (MB) - Monza Circuit Track Days</a></div>
-            </div>
-            <div class="event-item">
-                <div class="event-date">29-09-2024</div>
-                <div class="event-details"><a href="#">Agliate (MB) - Mini&Solo1340</a></div>
-            </div>
-            <div class="event-item">
-                <div class="event-date">22-09-2024</div>
-                <div class="event-details"><a href="#">Vignate (MI) - Centro Commerciale Acquario</a></div>
-            </div>
+        <div class="event-item">
+            <div class="event-date">15-06-2025</div>
+            <div class="event-details"><a href="#">Arcene (BG) - Arcene on the Road</a></div>
         </div>
     </div>
+
+    <div class="event-list">
+        <h2 id="past-events-title" style="text-align: center;">- Past Events -</h2>
+        <div class="event-item">
+            <div class="event-date">16-02-2025</div>
+            <div class="event-details"><a href="#">Monza (MB) - Monza Circuit Track Days</a></div>
+        </div>
+        <div class="event-item">
+            <div class="event-date">23-12-2024</div>
+            <div class="event-details"><a href="#">Capriate (BG) - Pizza Club No Limits</a></div>
+        </div>
+        <div class="event-item">
+            <div class="event-date">24-11-2024</div>
+            <div class="event-details"><a href="#">Monza (MB) - Monza Circuit Track Days</a></div>
+        </div>
+        <div class="event-item">
+            <div class="event-date">29-09-2024</div>
+            <div class="event-details"><a href="#">Agliate (MB) - Mini&Solo1340</a></div>
+        </div>
+        <div class="event-item">
+            <div class="event-date">22-09-2024</div>
+            <div class="event-details"><a href="#">Vignate (MI) - Centro Commerciale Acquario</a></div>
+        </div>
+    </div>
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            fetch("header.html")
+            fetch("header.html") 
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById("header-container").innerHTML = data;
-                })
-                .then(() => {
-                    // Aspetta il rendering del DOM e poi cambia la lingua
-                    requestAnimationFrame(() => {
-                        const savedLanguage = localStorage.getItem("selectedLanguage") || "it";
-                        changeLanguage(savedLanguage);
-                    });
+                    const savedLanguage = localStorage.getItem("selectedLanguage") || "it";
+                    changeLanguage(savedLanguage);
                 });
         });
-        
+
         function changeLanguage(lang) {
             localStorage.setItem('selectedLanguage', lang);
 
-            // Aspetta che il menu sia caricato prima di cambiare la lingua
-            waitForElements(["header-container"], () => {
-                document.querySelectorAll('.btn, .shop-button').forEach(el => {
-                    el.style.display = el.getAttribute('data-lang') === lang ? 'inline-flex' : 'none';
-                });
+            // Cambia la visibilità dei bottoni e degli elementi multilingua
+            document.querySelectorAll('.btn, .shop-button').forEach(el => {
+                el.style.display = el.getAttribute('data-lang') === lang ? 'inline-flex' : 'none';
             });
 
-        
-            // Assicurati che gli elementi esistano prima di modificarli
-            const nextEventsTitle = document.getElementById("next-events-title");
-            const pastEventsTitle = document.getElementById("past-events-title");
-        
-            if (nextEventsTitle && pastEventsTitle) {
-                nextEventsTitle.textContent = lang === "en" ? "- Next Events -" : "- Prossimi Eventi -";
-                pastEventsTitle.textContent = lang === "en" ? "- Past Events -" : "- Eventi Passati -";
-            } else {
-                console.warn("Gli elementi dei titoli degli eventi non sono ancora disponibili.");
-            }
-        
+            // Cambia i titoli degli eventi
+            document.getElementById("next-events-title").textContent = lang === "en" ? "- Next Events -" : "- Prossimi Eventi -";
+            document.getElementById("past-events-title").textContent = lang === "en" ? "- Past Events -" : "- Eventi Passati -";
+
             // Cambia il formato della data
             formatEventDates(lang);
         }
-        
+
         function formatEventDates(lang) {
             document.querySelectorAll(".event-date").forEach(dateElement => {
                 let dateParts = dateElement.textContent.split("-");
