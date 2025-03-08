@@ -59,8 +59,29 @@
 
         function changeLanguage(lang) {
             localStorage.setItem('selectedLanguage', lang);
+
+            // Cambia la visibilità dei bottoni e degli elementi multilingua
             document.querySelectorAll('.btn, .shop-button').forEach(el => {
                 el.style.display = el.getAttribute('data-lang') === lang ? 'inline-flex' : 'none';
+            });
+
+            // Cambia i titoli degli eventi
+            document.getElementById("next-events-title").textContent = lang === "en" ? "- Next Events -" : "- Prossimi Eventi -";
+            document.getElementById("past-events-title").textContent = lang === "en" ? "- Past Events -" : "- Eventi Passati -";
+
+            // Cambia il formato della data
+            formatEventDates(lang);
+        }
+
+        function formatEventDates(lang) {
+            document.querySelectorAll(".event-date").forEach(dateElement => {
+                let dateParts = dateElement.textContent.split("-");
+                if (dateParts.length === 3) {
+                    let formattedDate = lang === "en"
+                        ? `${dateParts[2]}-${dateParts[1]}-${dateParts[0]}`  // YYYY-MM-DD per inglese
+                        : `${dateParts[0]}/${dateParts[1]}/${dateParts[2]}`; // DD/MM/YYYY per italiano
+                    dateElement.textContent = formattedDate;
+                }
             });
         }
     </script>
