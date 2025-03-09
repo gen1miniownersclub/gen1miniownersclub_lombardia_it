@@ -1,29 +1,48 @@
 document.addEventListener("DOMContentLoaded", function () {
-    loadHeader().then(() => {
-        const savedLanguage = localStorage.getItem("selectedLanguage") || "it";
-        loadEvents(savedLanguage);
-    }).catch(error => console.error("Errore nel caricamento dell'header:", error));
+    loadHeader()
+        .then(() => {
+            console.log("Header caricato con successo!");
+            attachMenuListeners(); // Riassegna eventi al menu
+            const savedLanguage = localStorage.getItem("selectedLanguage") || "it";
+            loadEvents(savedLanguage);
+        })
+        .catch(error => console.error("Errore nel caricamento dell'header:", error));
 });
 
 function loadHeader() {
     return fetch("header.html")
         .then(response => {
             if (!response.ok) {
-                throw new Error("Errore nel caricamento di header.html");
+                throw new Error("Errore nel caricamento di header.html - Verifica il percorso.");
             }
             return response.text();
         })
-        .then(data => {
-            document.getElementById("header-container").innerHTML = data;
-            attachMenuListeners();
+        .then(html => {
+            document.getElementById("header-container").innerHTML = html;
+            executeScriptsFromHTML(html); // Esegue eventuali script dentro header.html
         });
 }
 
+// Esegue gli script contenuti dentro header.html
+function executeScriptsFromHTML(html) {
+    let tempDiv = document.createElement("div");
+    tempDiv.innerHTML = html;
+    tempDiv.querySelectorAll("script").forEach(script => {
+        let newScript = document.createElement("script");
+        if (script.src) {
+            newScript.src = script.src;
+        } else {
+            newScript.textContent = script.textContent;
+        }
+        document.body.appendChild(newScript);
+    });
+}
+
 function attachMenuListeners() {
-    // Se il tuo menu usa JavaScript per funzionare, riassegna gli eventi qui
+    console.log("Aggiungendo listener al menu...");
     document.querySelectorAll('.menu-item').forEach(item => {
         item.addEventListener('click', function () {
-            console.log("Menu item cliccato:", this.textContent);
+            console.log("Cliccato su:", this.textContent);
         });
     });
 }
@@ -39,7 +58,7 @@ function loadEvents(lang) {
 }
 
 function parseCSV(csvText) {
-    let rows = csvText.trim().split("\n").slice(1); // Ignora l'intestazione
+    let rows = csvText.trim().split("\n").slice(1);
     return rows.map(row => {
         let [date, location, event] = row.split(",");
         return { date, location, event };
