@@ -103,6 +103,11 @@ function formatDate(dateString, lang) {
 function changeLanguage(lang) {
     localStorage.setItem('selectedLanguage', lang);
     document.documentElement.lang = lang;
+
+    // Cambia la visibilità dei bottoni e degli elementi multilingua
+    document.querySelectorAll('.btn, .shop-button').forEach(el => {
+        el.style.display = el.getAttribute('data-lang') === lang ? 'inline-flex' : 'none';
+    });
     
     document.getElementById("next-events-title").textContent = lang === "en" ? "- Next Events -" : "- Prossimi Eventi -";
     document.getElementById("past-events-title").textContent = lang === "en" ? "- Past Events -" : "- Eventi Passati -";
