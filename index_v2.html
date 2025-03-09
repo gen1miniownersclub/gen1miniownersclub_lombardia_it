@@ -36,23 +36,6 @@
             <script type="text/javascript" src="//codice.shinystat.com/cgi-bin/getcod.cgi?USER=SS-52618215-692a6"></script>
         </div>
     </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            fetch("header.html") 
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById("header-container").innerHTML = data;
-                    const savedLanguage = localStorage.getItem("selectedLanguage") || "it";
-                    changeLanguage(savedLanguage);
-                });
-        });
-
-        function changeLanguage(lang) {
-            localStorage.setItem('selectedLanguage', lang);
-            document.querySelectorAll('.btn, .shop-button').forEach(el => {
-                el.style.display = el.getAttribute('data-lang') === lang ? 'inline-flex' : 'none';
-            });
-        }
-    </script>
+    <script src="js/events.js"></script>
 </body>
 </html>
