@@ -79,7 +79,7 @@
             document.querySelectorAll(".event-date").forEach(dateElement => {
                 let originalDate = dateElement.getAttribute("data-original-date");
                 if (originalDate) {
-                    let [year, month, day] = originalDate.split("-");
+                    let [day, month, year] = originalDate.split("-");
                     let formattedDate = lang === "en"
                         ? `${year}-${month}-${day}`  // Inglese (YYYY-MM-DD)
                         : `${day}/${month}/${year}`; // Italiano (DD/MM/YYYY)
