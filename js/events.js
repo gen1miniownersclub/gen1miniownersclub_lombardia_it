@@ -1,12 +1,32 @@
 document.addEventListener("DOMContentLoaded", function () {
-    fetch("header.html")
-        .then(response => response.text())
+    loadHeader().then(() => {
+        const savedLanguage = localStorage.getItem("selectedLanguage") || "it";
+        loadEvents(savedLanguage);
+    }).catch(error => console.error("Errore nel caricamento dell'header:", error));
+});
+
+function loadHeader() {
+    return fetch("header.html")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Errore nel caricamento di header.html");
+            }
+            return response.text();
+        })
         .then(data => {
             document.getElementById("header-container").innerHTML = data;
-            const savedLanguage = localStorage.getItem("selectedLanguage") || "it";
-            loadEvents(savedLanguage);
+            attachMenuListeners();
         });
-});
+}
+
+function attachMenuListeners() {
+    // Se il tuo menu usa JavaScript per funzionare, riassegna gli eventi qui
+    document.querySelectorAll('.menu-item').forEach(item => {
+        item.addEventListener('click', function () {
+            console.log("Menu item cliccato:", this.textContent);
+        });
+    });
+}
 
 function loadEvents(lang) {
     fetch("data/events.csv")
@@ -49,12 +69,9 @@ function displayEvents(events, lang) {
         }
     });
 
-    // Ordina eventi futuri in ordine crescente
     nextEvents.sort((a, b) => a.date - b.date);
-    // Ordina eventi passati in ordine decrescente
     pastEvents.sort((a, b) => b.date - a.date);
 
-    // Inserisci eventi nel DOM
     document.getElementById("next-events-container").innerHTML = nextEvents.map(e => e.html).join("");
     document.getElementById("past-events-container").innerHTML = pastEvents.map(e => e.html).join("");
 }
