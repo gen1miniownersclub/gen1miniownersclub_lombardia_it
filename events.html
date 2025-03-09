@@ -15,11 +15,11 @@
     <div class="event-list">
         <h2 id="next-events-title" style="text-align: center;">- Next Events -</h2>
         <div class="event-item">
-            <div class="event-date">26-04-2025</div>
+            <div class="event-date" data-original-date="26-04-2025">26-04-2025</div>
             <div class="event-details"><a href="#">Agliate (MB) - Mini&Solo1340</a></div>
         </div>
         <div class="event-item">
-            <div class="event-date">15-06-2025</div>
+            <div class="event-date" data-original-date="15-06-2025">15-06-2025</div>
             <div class="event-details"><a href="#">Arcene (BG) - Arcene on the Road</a></div>
         </div>
     </div>
@@ -27,23 +27,23 @@
     <div class="event-list">
         <h2 id="past-events-title" style="text-align: center;">- Past Events -</h2>
         <div class="event-item">
-            <div class="event-date">16-02-2025</div>
+            <div class="event-date" data-original-date="16-02-2025">16-02-2025</div>
             <div class="event-details"><a href="#">Monza (MB) - Monza Circuit Track Days</a></div>
         </div>
         <div class="event-item">
-            <div class="event-date">23-12-2024</div>
+            <div class="event-date" data-original-date="23-12-2024">23-12-2024</div>
             <div class="event-details"><a href="#">Capriate (BG) - Pizza Club No Limits</a></div>
         </div>
         <div class="event-item">
-            <div class="event-date">24-11-2024</div>
+            <div class="event-date" data-original-date="24-11-2024">24-11-2024</div>
             <div class="event-details"><a href="#">Monza (MB) - Monza Circuit Track Days</a></div>
         </div>
         <div class="event-item">
-            <div class="event-date">29-09-2024</div>
+            <div class="event-date" data-original-date="29-09-2024">29-09-2024</div>
             <div class="event-details"><a href="#">Agliate (MB) - Mini&Solo1340</a></div>
         </div>
         <div class="event-item">
-            <div class="event-date">22-09-2024</div>
+            <div class="event-date" data-original-date="22-09-2024">22-09-2024</div>
             <div class="event-details"><a href="#">Vignate (MI) - Centro Commerciale Acquario</a></div>
         </div>
     </div>
@@ -75,13 +75,14 @@
             formatEventDates(lang);
         }
 
-        function formatEventDates(lang) {
+	function formatEventDates(lang) {
             document.querySelectorAll(".event-date").forEach(dateElement => {
-                let dateParts = dateElement.textContent.split("-");
-                if (dateParts.length === 3) {
+                let originalDate = dateElement.getAttribute("data-original-date");
+                if (originalDate) {
+                    let [year, month, day] = originalDate.split("-");
                     let formattedDate = lang === "en"
-                        ? `${dateParts[2]}-${dateParts[1]}-${dateParts[0]}`  // YYYY-MM-DD per inglese
-                        : `${dateParts[0]}/${dateParts[1]}/${dateParts[2]}`; // DD/MM/YYYY per italiano
+                        ? `${year}-${month}-${day}`  // Inglese (YYYY-MM-DD)
+                        : `${day}/${month}/${year}`; // Italiano (DD/MM/YYYY)
                     dateElement.textContent = formattedDate;
                 }
             });
