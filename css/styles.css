@@ -222,6 +222,7 @@ footer {
     margin-bottom: 5px;
 }
 .story-text {
+    font-family: 'Roboto', Arial, sans-serif; /* Font leggibile per il corpo del testo */
     font-size: 16px;
     color: black;
     text-align: justify;
