@@ -17,9 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Carica il footer in ogni pagina
     loadFooter();
 
-    // Imposta il tasto attivo
-    highlightActiveButton();
-
     // Aggiunge un ritardo casuale al bouncing per ogni pulsante
     setTimeout(() => {
         document.querySelectorAll('.btn').forEach(btn => {
@@ -74,6 +71,9 @@ function loadHeader() {
         .then(html => {
             document.getElementById("header-container").innerHTML = html;
             executeScriptsFromHTML(html);
+
+            console.log("✅ Header caricato, ora evidenziamo il pulsante attivo!");
+            highlightActiveButton(); // CHIAMA highlightActiveButton SOLO DOPO il caricamento dell'header
         });
 }
 
