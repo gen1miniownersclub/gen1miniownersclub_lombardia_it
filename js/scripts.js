@@ -37,9 +37,9 @@ function highlightActiveButton() {
     if (!currentPage) currentPage = "index_v2.html"; // Se vuoto, assegna la home
 
     document.querySelectorAll('.btn').forEach(btn => {
-        let pageHref = btn.getAttribute("onclick")?.match(/'([^']+)'/);
+        let btnPage = btn.getAttribute("data-page"); // Usa un attributo data-page nei bottoni
 
-        if (pageHref && pageHref[1] === currentPage) {
+        if (btnPage === currentPage) {
             btn.classList.add("active-btn");  // Evidenzia il pulsante attivo
             btn.style.removeProperty('animation'); // Rimuove il bouncing
             btn.style.pointerEvents = "none"; // Disabilita il click
