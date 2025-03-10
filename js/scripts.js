@@ -37,15 +37,20 @@ function highlightActiveButton() {
     if (!currentPage) currentPage = "index_v2.html"; // Se vuoto, assegna la home
 
     document.querySelectorAll('.btn').forEach(btn => {
-        let pageLink = btn.getAttribute("onclick")?.match(/'([^']+)'/);
-        
-        if (pageLink && pageLink[1] === currentPage) {
+        let pageHref = btn.getAttribute("onclick")?.match(/'([^']+)'/);
+
+        if (pageHref && pageHref[1] === currentPage) {
             btn.classList.add("active-btn");  // Evidenzia il pulsante attivo
-            btn.style.animation = "none";  // Disabilita il bouncing
+            btn.style.removeProperty('animation'); // Rimuove il bouncing
             btn.style.pointerEvents = "none"; // Disabilita il click
+            btn.style.color = "#e2007d"; // Cambia colore per evidenziare
+            btn.style.fontWeight = "bold";
         } else {
-            btn.classList.remove("active-btn"); // Rimuove l'evidenziazione dagli altri pulsanti
-            btn.style.pointerEvents = "auto";  // Riattiva il click
+            btn.classList.remove("active-btn"); // Rimuove evidenziazione dagli altri pulsanti
+            btn.style.animation = "bounce 1.5s infinite alternate ease-in-out"; // Riattiva il bouncing sugli altri
+            btn.style.color = "black"; // Ripristina colore originale
+            btn.style.fontWeight = "normal";
+            btn.style.pointerEvents = "auto"; // Riattiva il click sugli altri
         }
     });
 }
