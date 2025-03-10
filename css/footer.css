@@ -1,0 +1,37 @@
+footer {
+    width: 100%;
+    background-color: #f4f4f4;
+    color: black;
+    text-align: center;
+    padding: 10px 5px;
+    font-size: 14px;
+    font-family: 'PhillySans', Arial, sans-serif;
+    margin-top: 20px;
+    border-top: 2px solid #e2007d;
+}
+
+.footer-container {
+    max-width: 400px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-container p {
+    margin: 2px 0;
+    line-height: 1.2;
+}
+
+.footer-container a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.footer-container a:hover {
+    color: #e2007d;
+    text-decoration: none;
+}

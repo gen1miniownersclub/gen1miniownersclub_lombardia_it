@@ -1,0 +1,18 @@
+@media (max-width: 768px) {
+    .story-title {
+        font-size: 22px;
+    }
+
+    .story-subtitle {
+        font-size: 18px;
+    }
+
+    .story-text {
+        font-size: 14px;
+    }
+
+    .footer {
+        font-size: 12px;
+        padding: 8px 5px;
+    }
+}

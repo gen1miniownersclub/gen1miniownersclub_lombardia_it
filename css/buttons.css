@@ -1,0 +1,37 @@
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+@keyframes jump {
+    0%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+.btn {
+    padding: 4px 8px;
+    background-color: transparent;
+    color: black;
+    border: none;
+    cursor: pointer;
+    font-size: 23px;
+    font-family: 'PhillySans', Arial, sans-serif;
+    white-space: nowrap;
+    display: inline-block;
+    text-align: center;
+    width: auto;
+    transition: transform 0.2s ease-in-out, color 0.3s ease-in-out;
+    animation: bounce 1.5s infinite alternate ease-in-out;
+}
+
+.btn:hover {
+    color: #e2007d;
+    font-weight: bold;
+}
+
+.btn.active-btn {
+    color: #e2007d;
+    font-weight: bold;
+    animation: none;
+}

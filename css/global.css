@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'PhillySans';
+    src: url('../fonts/PhillySans.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html, body {
+    height: auto;
+    margin: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-family: 'PhillySans', Arial, sans-serif;
+}

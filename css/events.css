@@ -1,0 +1,39 @@
+.event-list {
+    width: 100%;
+    background: #f4f4f4;
+    border-radius: 0;
+    box-shadow: none;
+    text-align: left;
+    font-size: 16px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.event-item {
+    padding: 7px 0;
+    border-bottom: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.event-date {
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+.event-details a {
+    text-align: center;
+    width: 100%;
+    font-weight: normal;
+    display: flex;
+    justify-content: center;
+    color: black;
+    text-decoration: none;
+}
+
+.event-details a:hover {
+    color: #e2007d;
+}
