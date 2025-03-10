@@ -197,7 +197,6 @@ footer {
     align-items: center;
     width: min(90%, 400px); 
     max-width: 400px;
-    min-height: calc(100vh - 20px);
     margin-top: 20px;
 }
 .story-title {
