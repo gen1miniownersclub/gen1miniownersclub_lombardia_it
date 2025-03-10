@@ -58,3 +58,17 @@
     font-weight: bold;
 }
 
+.btn-lang {
+    padding: 4px 8px;
+    background: transparent;
+    color: black;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    font-family: 'PhillySans', Arial, sans-serif;
+}
+.btn-lang:hover {
+    font-weight: bold;
+    color: #e2007d;
+}
+
