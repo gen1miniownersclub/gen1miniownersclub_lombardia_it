@@ -36,16 +36,21 @@ function highlightActiveButton() {
     let currentPage = window.location.pathname.split("/").pop(); // Ottiene il nome file corrente
     if (!currentPage) currentPage = "index_v2.html"; // Se vuoto, assegna la home
 
+    console.log(`🔍 Pagina attuale: ${currentPage}`);
+
     document.querySelectorAll('.btn').forEach(btn => {
         let btnPage = btn.getAttribute("data-page"); // Usa un attributo data-page nei bottoni
+        console.log(`🎯 Controllando bottone: ${btn.textContent} | data-page: ${btnPage}`);
 
         if (btnPage === currentPage) {
+            console.log(`✅ Bottone attivo trovato: ${btn.textContent}`);
             btn.classList.add("active-btn");  // Evidenzia il pulsante attivo
             btn.style.removeProperty('animation'); // Rimuove il bouncing
             btn.style.pointerEvents = "none"; // Disabilita il click
             btn.style.color = "#e2007d"; // Cambia colore per evidenziare
             btn.style.fontWeight = "bold";
         } else {
+            console.log(`❌ Bottone NON attivo: ${btn.textContent}`);
             btn.classList.remove("active-btn"); // Rimuove evidenziazione dagli altri pulsanti
             btn.style.animation = "bounce 1.5s infinite alternate ease-in-out"; // Riattiva il bouncing sugli altri
             btn.style.color = "black"; // Ripristina colore originale
