@@ -31,21 +31,21 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 500); // Aspettiamo il caricamento per evitare problemi di rilevamento
 });
 
-// Evidenzia il pulsante della pagina corrente
+// Funzione per evidenziare il pulsante della pagina corrente e fermare il bouncing
 function highlightActiveButton() {
-    let currentPage = window.location.pathname.split("/").pop(); // Ottiene il nome del file corrente
-        if (!currentPage) currentPage = "index_v2.html"; // Se vuoto, assegna la home
+    let currentPage = window.location.pathname.split("/").pop(); // Ottiene il nome file corrente
+    if (!currentPage) currentPage = "index_v2.html"; // Se vuoto, assegna la home
 
     document.querySelectorAll('.btn').forEach(btn => {
-        let btnHref = btn.getAttribute("onclick");
-
-        if (btnHref && btnHref.includes(currentPage)) {
-            btn.classList.add("active-btn"); // Evidenzia il pulsante attivo
-            btn.style.pointerEvents = "none"; // Disabilita il click sul pulsante attivo
+        let pageLink = btn.getAttribute("onclick")?.match(/'([^']+)'/);
+        
+        if (pageLink && pageLink[1] === currentPage) {
+            btn.classList.add("active-btn");  // Evidenzia il pulsante attivo
+            btn.style.animation = "none";  // Disabilita il bouncing
             btn.style.pointerEvents = "none"; // Disabilita il click
         } else {
             btn.classList.remove("active-btn"); // Rimuove l'evidenziazione dagli altri pulsanti
-            btn.style.pointerEvents = "auto"; // Riattiva il click sugli altri pulsanti
+            btn.style.pointerEvents = "auto";  // Riattiva il click
         }
     });
 }

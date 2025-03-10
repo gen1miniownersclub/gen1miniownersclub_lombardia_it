@@ -34,4 +34,5 @@
     color: #e2007d;
     font-weight: bold;
     animation: none;
+    pointer-events: none;
 }
