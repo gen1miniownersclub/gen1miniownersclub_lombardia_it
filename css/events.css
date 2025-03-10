@@ -17,23 +17,31 @@
 }
 
 .event-date {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    text-transform: uppercase;
     text-align: center;
     width: 100%;
-    font-weight: bold;
     display: flex;
     justify-content: center;
 }
 
 .event-details a {
-    text-align: center;
-    width: 100%;
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 16px;
     font-weight: normal;
-    display: flex;
-    justify-content: center;
     color: black;
     text-decoration: none;
+    transition: color 0.3s ease-in-out;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .event-details a:hover {
     color: #e2007d;
+    font-weight: bold;
 }
