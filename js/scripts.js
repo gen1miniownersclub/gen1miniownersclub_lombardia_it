@@ -27,14 +27,19 @@ document.addEventListener("DOMContentLoaded", function () {
     highlightActiveButton();
 });
 
+// Evidenzia il pulsante della pagina corrente
 function highlightActiveButton() {
     let currentPage = window.location.pathname.split("/").pop(); // Ottiene il nome del file corrente
 
     document.querySelectorAll('.btn').forEach(btn => {
-        if (btn.getAttribute("onclick")?.includes(currentPage)) {
-            btn.classList.add("active-btn"); // Evidenzia il tasto attivo
+        let btnHref = btn.getAttribute("onclick");
+
+        if (btnHref && btnHref.includes(currentPage)) {
+            btn.classList.add("active-btn"); // Evidenzia il pulsante attivo
+            btn.style.pointerEvents = "none"; // Disabilita il click sul pulsante attivo
         } else {
-            btn.classList.remove("active-btn"); // Rimuove l'evidenziazione dagli altri tasti
+            btn.classList.remove("active-btn"); // Rimuove l'evidenziazione dagli altri pulsanti
+            btn.style.pointerEvents = "auto"; // Riattiva il click sugli altri pulsanti
         }
     });
 }
