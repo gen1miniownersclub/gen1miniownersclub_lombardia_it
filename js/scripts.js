@@ -33,16 +33,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Funzione per evidenziare il pulsante della pagina corrente e fermare il bouncing
 function highlightActiveButton() {
-    let currentPage = window.location.pathname.split("/").pop(); // Ottiene il nome file corrente
+    console.log("🔎 highlightActiveButton() chiamata!");
+
+    let currentPage = window.location.pathname.split("/").pop(); // Ottiene il nome del file corrente
     if (!currentPage) currentPage = "index_v2.html"; // Se vuoto, assegna la home
 
-    console.log(`🔍 Pagina attuale: ${currentPage}`);
+    console.log(`📌 Pagina attuale: ${currentPage}`);
 
     document.querySelectorAll('.btn').forEach(btn => {
-        let btnPage = btn.getAttribute("data-page"); // Usa un attributo data-page nei bottoni
-        console.log(`🎯 Controllando bottone: ${btn.textContent} | data-page: ${btnPage}`);
+        console.log(`🎯 Controllando bottone: ${btn.textContent} | onclick: ${btn.getAttribute("onclick")}`);
 
-        if (btnPage === currentPage) {
+        let pageHref = btn.getAttribute("onclick")?.match(/'([^']+)'/);
+
+        if (pageHref && pageHref[1] === currentPage) {
             console.log(`✅ Bottone attivo trovato: ${btn.textContent}`);
             btn.classList.add("active-btn");  // Evidenzia il pulsante attivo
             btn.style.removeProperty('animation'); // Rimuove il bouncing
