@@ -229,6 +229,7 @@ footer {
     text-align: justify;
     line-height: 1.5;
     margin-top: 0;
+    bargin-bottom: 0;
 }
 .story-image {
     display: flex;
