@@ -35,3 +35,11 @@ footer {
     color: #e2007d;
     text-decoration: none;
 }
+
+.shinystat-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+}
