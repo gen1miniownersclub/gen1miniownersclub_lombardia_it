@@ -212,14 +212,14 @@ footer {
     border-radius: 5px;
     padding: 10px;
     text-align: left;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 .story-subtitle {
     font-size: 20px;
     font-weight: bold;
     color: black;
     text-align: center;
-    margin-bottom: 2px;
+    margin-bottom: 5px;
 }
 .story-text {
     font-family: 'Roboto', Arial, sans-serif; /* Font leggibile per il corpo del testo */
@@ -227,7 +227,7 @@ footer {
     color: black;
     text-align: justify;
     line-height: 1.5;
-    margin-top: 0;
+    margin-top: 5px;
 }
 .story-image {
     display: flex;
