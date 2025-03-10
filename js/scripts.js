@@ -56,6 +56,30 @@ function attachMenuListeners() {
     });
 }
 
+
+function loadShinyStat() {
+    console.log("📊 Caricamento ShinyStat...");
+
+    let shinystatScript = document.createElement("script");
+    shinystatScript.type = "text/javascript";
+    shinystatScript.src = "//codice.shinystat.com/cgi-bin/getcod.cgi?USER=SS-52618215-692a6";
+    shinystatScript.async = true;
+
+    let footer = document.querySelector("footer");
+    if (footer) {
+        let container = document.createElement("div");
+        container.className = "shinystat-container";
+        container.appendChild(shinystatScript);
+
+        // Aggiunge lo script DOPO il copyright (alla fine del footer)
+        footer.appendChild(container);
+
+        console.log("✅ ShinyStat caricato dopo il copyright.");
+    } else {
+        console.error("❌ Footer non trovato, impossibile caricare ShinyStat.");
+    }
+}
+
 function loadFooter() {
     console.log("📥 Avvio caricamento footer...");
 
@@ -81,6 +105,9 @@ function loadFooter() {
             // Applica la lingua attuale al footer
             const savedLanguage = localStorage.getItem("selectedLanguage") || "it";
             updateFooterLanguage(savedLanguage);
+
+            // Dopo aver caricato il footer, carichiamo ShinyStat
+            loadShinyStat();
         })
         .catch(error => console.error("❌ Errore nel caricamento del footer:", error));
 }
