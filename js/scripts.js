@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(() => {
             console.log("✅ Header caricato con successo!");
             attachMenuListeners();
-            
+
             const savedLanguage = localStorage.getItem("selectedLanguage") || "it";
             changeLanguage(savedLanguage);
 
@@ -16,6 +16,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Carica il footer in ogni pagina
     loadFooter();
+
+    // Aggiungi un ritardo casuale ai pulsanti dopo il caricamento della pagina
+    document.querySelectorAll('.btn').forEach(btn => {
+        let randomDelay = Math.random() * 1.5; // Ritardo casuale tra 0 e 1.5 secondi
+        btn.style.animationDelay = `${randomDelay}s`;
+    });
 });
 
 // Carica l'header dinamicamente
