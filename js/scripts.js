@@ -174,7 +174,7 @@ function updateFooterLanguage(lang) {
 function updateStoryLanguage(lang) {
     console.log(`🌍 Cambio lingua nella Story Page a: ${lang}`);
 
-    document.querySelectorAll(".story-title, .story-subtitle, .story-text").forEach(el => {
+    document.querySelectorAll(".story-subtitle, .story-text").forEach(el => {
         if (el.getAttribute("data-lang") === lang) {
             el.style.display = "block";
         } else {
@@ -202,7 +202,7 @@ function changeLanguage(lang) {
     if (nextEventsTitle) nextEventsTitle.textContent = lang === "en" ? "- Next Events -" : "- Prossimi Eventi -";
     if (pastEventsTitle) pastEventsTitle.textContent = lang === "en" ? "- Past Events -" : "- Eventi Passati -";
 
-    if (document.querySelector(".story-title")) {
+    if (document.querySelector(".story-subtitle")) {
         updateStoryLanguage(lang);
     }
 
