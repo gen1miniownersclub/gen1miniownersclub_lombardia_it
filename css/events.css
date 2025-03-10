@@ -26,6 +26,7 @@
 }
 
 .event-item {
+    background: #f4f4f4;
     padding: 10px;
     border-bottom: none;
     display: flex;
