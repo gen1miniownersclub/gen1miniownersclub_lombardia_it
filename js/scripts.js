@@ -17,19 +17,24 @@ document.addEventListener("DOMContentLoaded", function () {
     // Carica il footer in ogni pagina
     loadFooter();
 
-    // Aggiungi un ritardo casuale ai pulsanti dopo il caricamento della pagina
-    document.querySelectorAll('.btn').forEach(btn => {
-        let randomDelay = Math.random() * 1.5; // Ritardo casuale tra 0 e 1.5 secondi
-        btn.style.animationDelay = `${randomDelay}s`;
-    });
-
     // Imposta il tasto attivo
     highlightActiveButton();
+
+    // Aggiunge un ritardo casuale al bouncing per ogni pulsante
+    setTimeout(() => {
+        document.querySelectorAll('.btn').forEach(btn => {
+            if (!btn.classList.contains("active-btn")) {
+                let randomDelay = Math.random() * 1.5; // Ritardo tra 0 e 1.5s
+                btn.style.animationDelay = `${randomDelay}s`;
+            }
+        });
+    }, 500); // Aspettiamo il caricamento per evitare problemi di rilevamento
 });
 
 // Evidenzia il pulsante della pagina corrente
 function highlightActiveButton() {
     let currentPage = window.location.pathname.split("/").pop(); // Ottiene il nome del file corrente
+        if (!currentPage) currentPage = "index_v2.html"; // Se vuoto, assegna la home
 
     document.querySelectorAll('.btn').forEach(btn => {
         let btnHref = btn.getAttribute("onclick");
@@ -37,6 +42,7 @@ function highlightActiveButton() {
         if (btnHref && btnHref.includes(currentPage)) {
             btn.classList.add("active-btn"); // Evidenzia il pulsante attivo
             btn.style.pointerEvents = "none"; // Disabilita il click sul pulsante attivo
+            btn.style.pointerEvents = "none"; // Disabilita il click
         } else {
             btn.classList.remove("active-btn"); // Rimuove l'evidenziazione dagli altri pulsanti
             btn.style.pointerEvents = "auto"; // Riattiva il click sugli altri pulsanti
