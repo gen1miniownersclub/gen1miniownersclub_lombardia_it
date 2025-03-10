@@ -195,6 +195,15 @@ function changeLanguage(lang) {
         el.style.display = el.getAttribute('data-lang') === lang ? 'inline-flex' : 'none';
     });
 
+    // Cambia colore al pulsante della lingua selezionata
+    document.querySelectorAll('.btn-lang').forEach(btn => {
+        if (btn.getAttribute("onclick").includes(`'${lang}'`)) {
+            btn.classList.add("active-lang");
+        } else {
+            btn.classList.remove("active-lang");
+        }
+    });
+
     // Cambia i titoli della sezione eventi solo se esistono nella pagina
     let nextEventsTitle = document.getElementById("next-events-title");
     let pastEventsTitle = document.getElementById("past-events-title");
