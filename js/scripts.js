@@ -41,10 +41,10 @@ function highlightActiveButton() {
     console.log("📌 Pagina attuale:", currentPage);
 
     document.querySelectorAll('.btn').forEach(btn => {
-        let pageHref = btn.getAttribute("onclick")?.match(/'([^']+)'/);
-        console.log("🎯 Controllando bottone:", btn.textContent.trim(), "-> Href:", pageHref ? pageHref[1] : "Nessun href");
+        let pageHref = btn.getAttribute("data-href"); // Usa un attributo data-href invece di onclick
+        console.log("🎯 Controllando bottone:", btn.textContent.trim(), "-> Href:", pageHref ? pageHref : "Nessun href");
 
-        if (pageHref && pageHref[1] === currentPage) {
+        if (pageHref === currentPage) {
             console.log("✅ Attivato bottone:", btn.textContent.trim());
 
             btn.classList.add("active-btn");  // Evidenzia il pulsante attivo
