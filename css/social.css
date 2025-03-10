@@ -1,0 +1,10 @@
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+.social-links a img {
+    width: 40px;
+    height: auto;
+}
