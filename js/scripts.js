@@ -100,6 +100,18 @@ function updateFooterLanguage(lang) {
     });
 }
 
+function updateStoryLanguage(lang) {
+    console.log(`🌍 Cambio lingua nella Story Page a: ${lang}`);
+
+    document.querySelectorAll(".story-title, .story-subtitle, .story-text").forEach(el => {
+        if (el.getAttribute("data-lang") === lang) {
+            el.style.display = "block";
+        } else {
+            el.style.display = "none";
+        }
+    });
+}
+
 // Cambia lingua su qualsiasi pagina
 function changeLanguage(lang) {
     localStorage.setItem('selectedLanguage', lang);
@@ -119,6 +131,10 @@ function changeLanguage(lang) {
     if (nextEventsTitle) nextEventsTitle.textContent = lang === "en" ? "- Next Events -" : "- Prossimi Eventi -";
     if (pastEventsTitle) pastEventsTitle.textContent = lang === "en" ? "- Past Events -" : "- Eventi Passati -";
 
+    if (document.querySelector(".story-title")) {
+        updateStoryLanguage(lang);
+    }
+
     // Ricarica gli eventi nella lingua selezionata se la pagina contiene eventi
     if (document.getElementById("next-events-container")) {
         loadEvents(lang);
@@ -127,6 +143,7 @@ function changeLanguage(lang) {
     // Aggiorna la lingua nel footer
     updateFooterLanguage(lang);
 }
+
 
 // Carica gli eventi SOLO se la pagina contiene la sezione eventi
 function loadEvents(lang) {
