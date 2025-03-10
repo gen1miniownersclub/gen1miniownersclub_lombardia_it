@@ -53,6 +53,7 @@ html, body {
         transform: translateY(-5px);
     }
 }
+/* Rimbalzo per tutti i pulsanti tranne quello attivo */
 .btn {
     padding: 4px 8px;
     background-color: transparent;
@@ -65,13 +66,19 @@ html, body {
     display: inline-block;
     text-align: center;
     width: auto;
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out, color 0.3s ease-in-out;
     animation: bounce 1.5s infinite alternate ease-in-out;
 }
+/* Normale effetto hover */
 .btn:hover {
     color: #e2007d; 
     font-weight: bold;
-    animation: jump 0.5s ease-in-out;
+}
+/* Disabilita il bounce per il tasto attivo e cambia colore */
+.btn.active-btn {
+    color: #e2007d; /* Colore evidenziato */
+    font-weight: bold;
+    animation: none; /* Disabilita il salto */
 }
 .image-container {
     display: flex;
@@ -251,7 +258,7 @@ footer {
     text-align: justify;
     line-height: 1.5;
     margin-top: 0;
-    bargin-bottom: 0;
+    margin-bottom: 0;
 }
 .story-image {
     display: flex;

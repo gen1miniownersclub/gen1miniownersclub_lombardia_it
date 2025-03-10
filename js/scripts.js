@@ -22,7 +22,22 @@ document.addEventListener("DOMContentLoaded", function () {
         let randomDelay = Math.random() * 1.5; // Ritardo casuale tra 0 e 1.5 secondi
         btn.style.animationDelay = `${randomDelay}s`;
     });
+
+    // Imposta il tasto attivo
+    highlightActiveButton();
 });
+
+function highlightActiveButton() {
+    let currentPage = window.location.pathname.split("/").pop(); // Ottiene il nome del file corrente
+
+    document.querySelectorAll('.btn').forEach(btn => {
+        if (btn.getAttribute("onclick")?.includes(currentPage)) {
+            btn.classList.add("active-btn"); // Evidenzia il tasto attivo
+        } else {
+            btn.classList.remove("active-btn"); // Rimuove l'evidenziazione dagli altri tasti
+        }
+    });
+}
 
 // Carica l'header dinamicamente
 function loadHeader() {
