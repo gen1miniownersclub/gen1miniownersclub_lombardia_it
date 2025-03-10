@@ -154,14 +154,14 @@ html, body {
 }
 footer {
     width: 100%;
-    background-color: #f4f4f4; /* Stesso sfondo del sito */
+    background-color: #f4f4f4; 
     color: black;
     text-align: center;
-    padding: 15px 10px;
+    padding: 10px 5px;
     font-size: 14px;
     font-family: 'PhillySans', Arial, sans-serif;
-    margin-top: 20px; /* Distanza dal contenuto principale */
-    border-top: 2px solid #e2007d; /* Linea superiore in tinta con gli hover */
+    margin-top: 20px;
+    border-top: 2px solid #e2007d;
 }
 .footer-container {
     max-width: 400px;
@@ -172,7 +172,8 @@ footer {
     text-align: center;
 }
 .footer-container p {
-    margin: 5px 0;
+    margin: 2px 0;
+    line-height: 1.2;
 }
 .footer-container a {
     color: black;
@@ -182,11 +183,11 @@ footer {
 }
 .footer-container a:hover {
     color: #e2007d;
-    text-decoration: underline;
+    text-decoration: none;
 }
 @media (max-width: 768px) {
     footer {
         font-size: 12px;
-        padding: 10px 5px;
+        padding: 8px 5px;
     }
 }
