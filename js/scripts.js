@@ -163,6 +163,13 @@ function updateFooterLanguage(lang) {
     document.querySelectorAll(".footer-text").forEach(el => {
         if (el.getAttribute("data-lang") === lang) {
             el.style.display = "block";
+
+            // Mantiene la data visibile nel copyright
+            let yearElement = el.querySelector("#current-year");
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+
             console.log(`✅ Mostrato nel footer:`, el.textContent);
         } else {
             el.style.display = "none";
