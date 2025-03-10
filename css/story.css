@@ -48,3 +48,18 @@
     height: auto;
     border-radius: 5px;
 }
+
+.story-text ul {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 16px;
+    color: black;
+    text-align: justify;
+    line-height: 1.5;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 20px;
+}
+
+.story-text li {
+    margin-bottom: 5px;
+}
