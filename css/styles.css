@@ -152,3 +152,19 @@ html, body {
 .event-details a:hover {
     color: #e2007d;
 }
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #222;
+    color: white;
+    font-size: 14px;
+}
+
+.footer-container a {
+    color: #ffcc00;
+    text-decoration: none;
+}
+
+.footer-container a:hover {
+    text-decoration: underline;
+}

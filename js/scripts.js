@@ -13,6 +13,9 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         })
         .catch(error => console.error("❌ Errore nel caricamento dell'header:", error));
+
+    // Carica il footer in ogni pagina
+    loadFooter();
 });
 
 // Carica l'header dinamicamente
@@ -53,6 +56,50 @@ function attachMenuListeners() {
     });
 }
 
+function loadFooter() {
+    console.log("📥 Avvio caricamento footer...");
+
+    fetch("footer.html")
+        .then(response => {
+            if (!response.ok) throw new Error("❌ Errore nel caricamento di footer.html");
+            return response.text();
+        })
+        .then(html => {
+            console.log("✅ Footer HTML caricato, inserimento nel DOM...");
+            document.body.insertAdjacentHTML("beforeend", html);
+            console.log("✅ Footer inserito con successo!");
+
+            // Imposta l'anno corrente nel footer
+            let yearElement = document.getElementById("current-year");
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+                console.log("📆 Anno corrente aggiornato:", yearElement.textContent);
+            } else {
+                console.warn("⚠️ Elemento #current-year non trovato nel footer.");
+            }
+
+            // Applica la lingua attuale al footer
+            const savedLanguage = localStorage.getItem("selectedLanguage") || "it";
+            updateFooterLanguage(savedLanguage);
+        })
+        .catch(error => console.error("❌ Errore nel caricamento del footer:", error));
+}
+
+// Funzione per aggiornare dinamicamente il testo del footer
+function updateFooterLanguage(lang) {
+    console.log(`🌍 Cambio lingua nel footer a: ${lang}`);
+
+    document.querySelectorAll(".footer-text").forEach(el => {
+        if (el.getAttribute("data-lang") === lang) {
+            el.style.display = "block";
+            console.log(`✅ Mostrato nel footer:`, el.textContent);
+        } else {
+            el.style.display = "none";
+            console.log(`❌ Nascosto nel footer:`, el.textContent);
+        }
+    });
+}
+
 // Cambia lingua su qualsiasi pagina
 function changeLanguage(lang) {
     localStorage.setItem('selectedLanguage', lang);
@@ -76,6 +123,9 @@ function changeLanguage(lang) {
     if (document.getElementById("next-events-container")) {
         loadEvents(lang);
     }
+
+    // Aggiorna la lingua nel footer
+    updateFooterLanguage(lang);
 }
 
 // Carica gli eventi SOLO se la pagina contiene la sezione eventi
