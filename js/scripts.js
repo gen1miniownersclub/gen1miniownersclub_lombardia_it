@@ -34,24 +34,22 @@ function highlightActiveButton() {
     
     let currentPage = window.location.pathname.split("/").pop(); // Ottiene il nome file corrente
     if (!currentPage) currentPage = "index_v2.html"; // Se vuoto, assegna la home
-    
     console.log("📌 Pagina attuale:", currentPage);
 
     document.querySelectorAll('.btn').forEach(btn => {
-        let pageHref = btn.getAttribute("data-href"); // Usa un attributo data-href invece di onclick
-        console.log("🎯 Controllando bottone:", btn.textContent.trim(), "-> Href:", pageHref ? pageHref : "Nessun href");
-
-        if (pageHref === currentPage) {
-            console.log("✅ Attivato bottone:", btn.textContent.trim());
-
+        let pageHref = btn.getAttribute("onclick"); // Controlla l'attributo onclick
+        
+        console.log(`🎯 Controllando bottone: ${btn.textContent} -> OnClick: ${pageHref}`);
+        
+        if (pageHref && pageHref.includes(currentPage)) {
+            console.log(`✅ Attivato bottone: ${btn.textContent}`);
             btn.classList.add("active-btn");  // Evidenzia il pulsante attivo
-            btn.style.removeProperty('animation'); // Rimuove il bouncing
+            btn.style.animation = "none"; // Disabilita il bouncing
             btn.style.pointerEvents = "none"; // Disabilita il click
             btn.style.color = "#e2007d"; // Cambia colore per evidenziare
             btn.style.fontWeight = "bold";
         } else {
-            console.log("❌ Non attivo:", btn.textContent.trim());
-
+            console.log(`❌ Non attivo: ${btn.textContent}`);
             btn.classList.remove("active-btn"); // Rimuove evidenziazione dagli altri pulsanti
             btn.style.animation = "bounce 1.5s infinite alternate ease-in-out"; // Riattiva il bouncing sugli altri
             btn.style.color = "black"; // Ripristina colore originale
