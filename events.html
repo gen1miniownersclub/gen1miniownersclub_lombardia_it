@@ -6,26 +6,33 @@
     <title>Events - Gen1 Mini Owners Club</title>
     <meta name="description" content="Scopri i prossimi eventi del Gen1 Mini Owners Club in Lombardia.">
     <meta name="author" content="Gen1 Mini Owners Club">
+    
+    <!-- Preload font -->
     <link rel="preload" href="fonts/PhillySans.otf" as="font" type="font/otf" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/global.css">  <!-- Stili generali e font -->
-    <link rel="stylesheet" href="css/header.css">  <!-- Stili per l'header -->
-    <link rel="stylesheet" href="css/buttons.css">  <!-- Stili per i pulsanti -->
-    <link rel="stylesheet" href="css/events.css">  <!-- Stili specifici per la pagina Events -->
-    <link rel="stylesheet" href="css/footer.css">  <!-- Stili per il footer -->
-    <link rel="stylesheet" href="css/responsive.css">  <!-- Stili per la responsività -->
+
+    <!-- Import CSS -->
+    <link rel="stylesheet" href="css/global.css">  <!-- Stili generali -->
+    <link rel="stylesheet" href="css/header.css">  <!-- Stili header -->
+    <link rel="stylesheet" href="css/buttons.css">  <!-- Stili pulsanti -->
+    <link rel="stylesheet" href="css/events.css">  <!-- Stili pagina eventi -->
+    <link rel="stylesheet" href="css/footer.css">  <!-- Stili footer -->
+    <link rel="stylesheet" href="css/responsive.css">  <!-- Responsività -->
 </head>
 <body>
     <div id="header-container"></div>
 
-    <div class="event-list">
-        <h2 id="next-events-title" style="text-align: center;">- Prossimi Eventi -</h2>
-        <div id="next-events-container"></div>
-    </div>
+    <!-- Contenitore eventi -->
+    <main class="event-container">
+        <section class="event-section">
+            <h2 id="next-events-title" class="event-title">- Prossimi Eventi -</h2>
+            <div id="next-events-container"></div>
+        </section>
 
-    <div class="event-list">
-        <h2 id="past-events-title" style="text-align: center;">- Eventi Passati -</h2>
-        <div id="past-events-container"></div>
-    </div>
+        <section class="event-section">
+            <h2 id="past-events-title" class="event-title">- Eventi Passati -</h2>
+            <div id="past-events-container"></div>
+        </section>
+    </main>
 
     <script src="js/scripts.js"></script>
 </body>
