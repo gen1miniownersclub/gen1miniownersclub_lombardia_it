@@ -4,90 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <title>Events - Gen1 Mini Owners Club</title>
-    <meta name="description" content="Scopri i prossimi eventi del Gen1 Mini Owners Club in Lombardia.">
+    <meta name="description" content="Scopri la storia del Gen1 Mini Owners Club Lombardia, nato dalla passione per la prima generazione di MINI.">
     <meta name="author" content="Gen1 Mini Owners Club">
-    <style>
-        @font-face {
-            font-family: 'PhillySans';
-            src: url('fonts/PhillySans.otf') format('opentype');
-            font-weight: normal;
-            font-style: normal;
-        }
-        
-        html, body {
-            height: 100%;
-            margin: 0;
-            background-color: #f4f4f4;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start; 
-            align-items: center;
-            overflow-x: hidden; overflow-y: auto;
-            font-family: 'PhillySans', Arial, sans-serif;
-        }
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: min(90%, 800px); min-height: 100vh;
-            max-width: 800px;
-        }
-        .nav-buttons {
-            display: flex;
-            justify-content: center; padding: 0 10px; max-width: 680px; 
-            gap: 2px;
-            flex-wrap: nowrap;
-            margin-top: 10px; margin-bottom: 20px;
-        }
-        .btn {
-            padding: 6px 12px;
-            background-color: transparent;
-            color: black;
-            border: none;
-            cursor: pointer;
-            font-size: 20px;
-            font-family: 'PhillySans', Arial, sans-serif;
-            white-space: nowrap;
-        }
-        .btn:hover {
-            color: #ff4500; font-weight: bold;
-        }
-        .image-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 400px;
-            margin-top: 10px; margin-bottom: 20px;
-        }
-        .image-container img {
-            width: 100%;
-            max-width: 400px;
-            height: auto;
-        }
-        .work-in-progress {
-	    font-family: 'PhillySans', Arial, sans-serif;
-	    font-size: 45px;
-	    font-weight: bold;
-	    color: black;
-	    text-align: center;
-	    margin-top: 0px;
-	}
-    </style>
+    <link rel="preload" href="fonts/PhillySans.otf" as="font" type="font/otf" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="image-container">
-            <img src="images/gen1miniownersclub_logo.png" alt="Gen1 Mini Owners Club Logo">
-        </div>
-        <div class="nav-buttons">
-            <button class="btn" onclick="window.location.href='index_v2.html'">Home</button>
-            <button class="btn" onclick="window.location.href='story.html'">Story's</button>
-            <button class="btn" onclick="window.location.href='#'">Partners</button>
-            <button class="btn" onclick="window.location.href='events.html'">Events</button>
-            <button class="btn" onclick="window.location.href='#'">Shop</button>
-        </div>
-        <div class="work-in-progress">WORK IN PROGRESS</div>
-    </div>
+    <div id="header-container"></div>
+
+    <main class="container">
+        <section class="story-section">
+            <h1>La Storia del Gen1 Mini Owners Club Lombardia</h1>
+            <p>
+                Il <strong>Gen1 Mini Owners Club Lombardia</strong> nasce nel 2024 dall’idea di un gruppo di appassionati della
+                prima generazione di MINI (R50, R52, R53 e GP1). Il nostro obiettivo è creare una comunità di proprietari e amanti
+                di queste vetture iconiche, condividendo la passione per la guida, il design e l’eredità di MINI.
+            </p>
+
+            <h2>Le Nostre Origini</h2>
+            <p>
+                Il club è stato fondato con l’idea di riunire gli appassionati della Gen1 MINI, creando un punto di riferimento per chi
+                ama personalizzare, restaurare e guidare questi modelli storici. Con il passare del tempo, il nostro gruppo è cresciuto,
+                attirando sempre più membri da tutta la Lombardia.
+            </p>
+
+            <h2>Eventi e Raduni</h2>
+            <p>
+                Organizziamo eventi esclusivi, raduni su strada, giornate in pista e incontri tecnici per offrire ai membri
+                la possibilità di condividere esperienze e conoscenze. Ogni evento è un'occasione per celebrare la passione per MINI
+                e creare nuove amicizie.
+            </p>
+
+            <h2>Unisciti a Noi!</h2>
+            <p>
+                Se possiedi una Gen1 MINI o sei semplicemente un fan del marchio, sei il benvenuto nel nostro club.
+                Segui i nostri canali social e partecipa ai nostri eventi per vivere l'esperienza MINI al 100%!
+            </p>
+
+            <!-- Optional Image -->
+            <div class="story-image">
+                <img src="images/gen1-mini-club.jpg" alt="Raduno Gen1 Mini Owners Club">
+            </div>
+        </section>
+    </main>
+
+    <script src="js/scripts.js"></script>
 </body>
 </html>
-
